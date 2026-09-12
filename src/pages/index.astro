@@ -5,51 +5,90 @@ import HeroCanvas from '../components/HeroCanvas.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
-// Vitrina de proyectos con perfil industrial y técnico (Full-Stack & E-Commerce)
+// Proyectos orientados al valor real de negocio para clientes
 const proyectos = [
 	{
 		id: "01",
-		titulo: "Plataforma E-Commerce Headless",
-		subtitulo: "Full-Stack // Backend + Checkout // Astro",
-		descripcion: "Tienda online construida desde cero sin plantillas prefabricadas. Backend con API de catálogo, pasarela de pago segura y frontend ultra rápido para máxima conversión.",
-		tags: ["Full-Stack", "E-Commerce", "API & Pagos", "Astro"],
+		titulo: "Tienda Online & E-Commerce a Medida",
+		subtitulo: "E-Commerce // Pagos Online // Catálogo Propio",
+		descripcion: "Plataforma de venta online completa desarrollada desde cero. Catálogo de productos ágil, cobro seguro con tarjeta (MercadoPago / Stripe) y sin pagar comisiones por venta a plataformas de terceros.",
+		tags: ["Tienda Online", "Cobro con Tarjeta", "Sin Comisiones", "Super Rápida"],
 		estado: "Disponible",
-		link: "#",
+		link: "https://wa.me/5491170603106?text=Hola%20Javier,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20una%20tienda%20online%20para%20mi%20negocio",
 		destacado: true
 	},
 	{
 		id: "02",
-		titulo: "Portal Web Corporativo & SEO Engine",
-		subtitulo: "Astro // Tailwind // Alto Rendimiento",
-		descripcion: "Sitio corporativo de velocidad crítica, estructurado con arquitectura de islas, 100/100 en Core Web Vitals y diseño editorial de alta conversión.",
-		tags: ["Frontend & UI", "TailwindCSS", "SEO", "TypeScript"],
-		estado: "En proceso",
-		link: "#",
+		titulo: "Página Web Corporativa de Alta Conversión",
+		subtitulo: "Web Profesional // Captación de Clientes // Google",
+		descripcion: "Sitio web elegante y moderno para empresas y profesionales. Diseñado para transmitir máxima confianza, posicionar en Google y lograr que los visitantes te contacten directamente a tu WhatsApp o correo.",
+		tags: ["Página Web", "Diseño a Medida", "Posicionamiento Google", "100% Celulares"],
+		estado: "Disponible",
+		link: "https://wa.me/5491170603106?text=Hola%20Javier,%20me%20gustar%C3%ADa%20una%20p%C3%A1gina%20web%20corporativa%20para%20mi%20empresa",
 		destacado: false
 	},
 	{
 		id: "03",
-		titulo: "Panel de Gestión & Backend API",
-		subtitulo: "Node.js // Base de Datos // UI Modular",
-		descripcion: "Panel administrativo interactivo con control de usuarios, gestión de inventario/pedidos y endpoints REST seguros y documentados.",
-		tags: ["Backend", "PostgreSQL", "Dashboard", "Auth"],
+		titulo: "Sistema Web & Panel de Gestión",
+		subtitulo: "App Web // Control de Pedidos // Clientes",
+		descripcion: "Panel administrativo privado para gestionar tu negocio: control de inventario, registro de ventas, citas o usuarios. Todo accesible de forma segura desde tu computadora o teléfono móvil.",
+		tags: ["Panel de Control", "Automatización", "Base de Datos", "Seguro"],
 		estado: "Concepto",
-		link: "#",
+		link: "https://wa.me/5491170603106?text=Hola%20Javier,%20necesito%20un%20sistema%20web%20o%20panel%20para%20mi%20negocio",
 		destacado: false
 	}
 ];
 
-const techStack = [
-	{ nombre: "Astro & Islas", categoria: "Frontend Framework", desc: "Velocidad nativa y 0 KB de JavaScript cliente superfluo" },
-	{ nombre: "Node.js & APIs", categoria: "Backend Architecture", desc: "Servicios REST, microservicios y gestión de datos" },
-	{ nombre: "E-Commerce Engines", categoria: "Plataformas", desc: "Sistemas de pago, catálogo y checkout optimizado" },
-	{ nombre: "Tailwind CSS v4", categoria: "Styling Engine", desc: "Sistemas de diseño escalables, limpios y responsivos" },
-	{ nombre: "TypeScript", categoria: "Tipado Estricto", desc: "Código robusto de punta a punta en frontend y backend" },
-	{ nombre: "SQL & Bases de Datos", categoria: "Persistencia", desc: "Modelado relacional estructurado, rápido y seguro" }
+const servicios = [
+	{
+		numero: "01",
+		titulo: "Tiendas Online & E-Commerce",
+		descripcion: "Armo tu tienda virtual desde cero para que vendas 24/7 sin intermediarios. Con carrito de compras, cobro automático con tarjeta de débito/crédito y gestión de productos fácil.",
+		destaque: "Cobro automático y catálogo propio"
+	},
+	{
+		numero: "02",
+		titulo: "Páginas Web para Empresas & Marcas",
+		descripcion: "Una presencia digital que destaque a tu negocio de la competencia. Diseño visual a medida, carga instantánea y optimización para que tus clientes te encuentren en Google.",
+		destaque: "Atrae clientes y transmite confianza"
+	},
+	{
+		numero: "03",
+		titulo: "Sistemas & Aplicaciones a Medida",
+		descripcion: "Si necesitas un panel interno para gestionar clientes, pedidos, inventario o reservas, creo herramientas web privadas, rápidas y muy fáciles de usar para tu equipo.",
+		destaque: "Ahorra tiempo y automatiza tu trabajo"
+	}
+];
+
+const beneficios = [
+	{ 
+		titulo: "Trato 100% Directo", 
+		desc: "Hablas directamente conmigo sin intermediarios, burocracia ni sobreprecios de agencias." 
+	},
+	{ 
+		titulo: "Carga en menos de 1 segundo", 
+		desc: "Un sitio web lento hace perder ventas. Mis páginas abren al instante incluso con datos móviles." 
+	},
+	{ 
+		titulo: "Diseño Único y Profesional", 
+		desc: "Cero plantillas genéricas. Tu sitio tendrá una identidad visual cuidada que impresiona a primera vista." 
+	},
+	{ 
+		titulo: "100% Pensado para Celulares", 
+		desc: "Más del 80% de tus clientes te verán desde el teléfono; la experiencia móvil es impecable y cómoda." 
+	},
+	{ 
+		titulo: "El Proyecto es Tuyo", 
+		desc: "Eres dueño total de tu código y datos. Sin ataduras a suscripciones abusivas de plataformas cerradas." 
+	},
+	{ 
+		titulo: "Listo para Vender", 
+		desc: "Botones directos de WhatsApp, llamadas y formularios para que ningún cliente se quede con dudas." 
+	}
 ];
 ---
 
-<Layout title="Javier Moreno — Full-Stack Engineer & Product Builder">
+<Layout title="Javier Moreno — Full Stack Developer & Product Builder">
 	<Navbar />
 
 	<main class="flex-1">
@@ -65,79 +104,84 @@ const techStack = [
 				<!-- Live System Status Badge -->
 				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono border border-zinc-800 bg-zinc-900/80 text-zinc-300 mb-8 backdrop-blur-md glow-lime-sm">
 					<span class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></span>
-					<span class="text-lime-400 font-semibold">[SYS: ONLINE]</span>
+					<span class="text-lime-400 font-semibold">[DISPONIBLE]</span>
 					<span class="text-zinc-500">|</span>
-					<span>Full-Stack & E-Commerce Builder</span>
+					<span>Atención directa por WhatsApp</span>
 				</div>
 
-				<!-- Titular Principal con Alto Impacto y Personalidad -->
+				<!-- Titular Principal Claro y Comercial -->
 				<h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl text-balance">
-					Construyo aplicaciones y <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">e-commerce</span> de <span class="text-lime-400 underline decoration-lime-400/40 decoration-wavy decoration-1 underline-offset-8">alto impacto</span>.
+					Creo páginas web y <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">tiendas online</span> diseñadas para <span class="text-lime-400 underline decoration-lime-400/40 decoration-wavy decoration-1 underline-offset-8">vender más</span>.
 				</h1>
 
-				<!-- Subtítulo profesional de Full-Stack & E-Commerce -->
-				<p class="mt-6 text-base sm:text-xl text-zinc-400 max-w-2xl font-normal leading-relaxed text-pretty">
-					<strong class="text-zinc-200 font-semibold">Full-Stack Engineer & Product Builder</strong>. Desarrollo soluciones completas de punta a punta: arquitectura de backend, tiendas e-commerce desde cero, interfaces de alta fidelidad y máxima velocidad con Astro.
+				<!-- Subtítulo comprensible para cualquier cliente -->
+				<p class="mt-6 text-base sm:text-xl text-zinc-300 max-w-2xl font-normal leading-relaxed text-pretty">
+					<strong class="text-white font-semibold">Full Stack Developer & Product Builder</strong>. Me encargo de todo tu proyecto de punta a punta: diseño visual atractivo, tienda con cobro con tarjeta y máxima velocidad en celulares. Sin plantillas lentas ni complicaciones técnicas.
 				</p>
 
 				<!-- Botones de Acción Táctiles (Móvil Primero con min 48px de altura) -->
 				<div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-stretch sm:items-center justify-center font-mono">
 					<a 
-						href="#proyectos" 
-						class="flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-black font-bold text-sm uppercase tracking-wider transition-all duration-200 glow-lime active:scale-95"
+						href="https://wa.me/5491170603106?text=Hola%20Javier,%20estuve%20viendo%20tu%20web%20y%20me%20gustar%C3%ADa%20consultarte%20por%20un%20proyecto" 
+						target="_blank"
+						rel="noopener noreferrer"
+						class="flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-black font-bold text-xs uppercase tracking-wider transition-all duration-200 glow-lime active:scale-95 shadow-lg shadow-lime-400/10"
 					>
-						<span>Ver proyectos [03]</span>
-						<span class="text-xs">&darr;</span>
+						<!-- Icono WhatsApp -->
+						<svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
+							<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.83.81 2.796.81 3.183 0 5.769-2.588 5.77-5.768.001-3.182-2.585-5.794-5.77-5.794zm3.364 8.167c-.14.394-.808.751-1.121.789-.313.039-.707.054-2.072-.511-1.745-.724-2.871-2.496-2.958-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.274.607-1.448.16-.174.348-.218.464-.218.116 0 .232.001.333.006.107.005.25.04.385.367.14.339.479 1.168.521 1.255.042.087.07.189.012.305-.058.116-.087.189-.174.291-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 0.742.966 1.202.664.591 1.224.774 1.398.861.174.087.276.073.378-.044.102-.116.435-.508.551-.682.116-.174.232-.145.392-.087.16.058 1.015.479 1.189.566.174.087.29.131.333.204.043.073.043.421-.097.815zM12.042 2C6.5 2 2 6.5 2 12.042c0 1.984.58 3.834 1.583 5.399L2 22l4.693-1.536c1.517.937 3.303 1.478 5.349 1.478 5.542 0 10.042-4.5 10.042-10.042C22.084 6.5 17.584 2 12.042 2z"/>
+						</svg>
+						<span>Consultar por WhatsApp</span>
 					</a>
 					<a 
-						href="#contacto" 
-						class="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-zinc-800 hover:border-zinc-600 bg-zinc-900/70 hover:bg-zinc-900 text-zinc-200 hover:text-white font-medium text-sm transition-all duration-200 active:scale-95"
+						href="#proyectos" 
+						class="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-zinc-800 hover:border-zinc-600 bg-zinc-900/70 hover:bg-zinc-900 text-zinc-200 hover:text-white font-medium text-xs uppercase tracking-wider transition-all duration-200 active:scale-95"
 					>
-						<span>Hablemos por WhatsApp</span>
-						<span class="text-emerald-400">&rarr;</span>
+						<span>Ver ejemplos de trabajo</span>
+						<span>&darr;</span>
 					</a>
 				</div>
 
-				<!-- Strip de Métricas Técnicas en Vivo -->
+				<!-- Métricas Reales orientadas a Negocio -->
 				<div class="mt-14 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl text-left font-mono">
-					<div class="p-3 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
-						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Alcance</div>
-						<div class="text-xl sm:text-2xl font-bold text-lime-400 mt-1">Full-Stack</div>
-						<div class="text-[10px] text-zinc-400 mt-0.5">Diseño + Back + Front</div>
+					<div class="p-3.5 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
+						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Velocidad</div>
+						<div class="text-xl sm:text-2xl font-bold text-lime-400 mt-1">&lt; 1 segundo</div>
+						<div class="text-[10px] text-zinc-400 mt-0.5">Apertura instantánea</div>
 					</div>
-					<div class="p-3 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
-						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">E-Commerce</div>
-						<div class="text-xl sm:text-2xl font-bold text-white mt-1">Desde Cero</div>
-						<div class="text-[10px] text-zinc-400 mt-0.5">Pagos y catálogo propio</div>
+					<div class="p-3.5 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
+						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Tiendas Online</div>
+						<div class="text-xl sm:text-2xl font-bold text-white mt-1">100% Propias</div>
+						<div class="text-[10px] text-zinc-400 mt-0.5">Sin comisión por venta</div>
 					</div>
-					<div class="p-3 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
-						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Rendimiento</div>
-						<div class="text-xl sm:text-2xl font-bold text-lime-400 mt-1">100/100</div>
-						<div class="text-[10px] text-zinc-400 mt-0.5">Lighthouse Score</div>
+					<div class="p-3.5 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
+						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Dispositivos</div>
+						<div class="text-xl sm:text-2xl font-bold text-lime-400 mt-1">Celular 1st</div>
+						<div class="text-[10px] text-zinc-400 mt-0.5">Adaptado a pantallas táctiles</div>
 					</div>
-					<div class="p-3 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
-						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Enfoque</div>
-						<div class="text-xl sm:text-2xl font-bold text-white mt-1">Mobile 1st</div>
-						<div class="text-[10px] text-zinc-400 mt-0.5">UX táctil optimizada</div>
+					<div class="p-3.5 sm:p-4 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-sm">
+						<div class="text-[10px] sm:text-xs text-zinc-500 uppercase">Modalidad</div>
+						<div class="text-xl sm:text-2xl font-bold text-white mt-1">Llave en mano</div>
+						<div class="text-[10px] text-zinc-400 mt-0.5">Diseño, cobros y puesta en marcha</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Vitrina de Proyectos Seleccionados -->
+		<!-- Vitrina de Trabajos y Proyectos -->
 		<section id="proyectos" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-zinc-800/80">
 			<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
 				<div>
 					<div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-lime-400 mb-2">
 						<span>// 01</span>
-						<span>Vitrina Técnica</span>
+						<span>Vitrina de Trabajos</span>
 					</div>
 					<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-						Proyectos seleccionados
+						Soluciones para tu negocio
 					</h2>
 				</div>
 				<p class="text-sm text-zinc-400 max-w-md font-sans leading-relaxed">
-					Soluciones integrales que combinan backend robusto, pasarelas de pago y frontends veloces listos para producción.
+					Proyectos desarrollados a medida, con diseño atractivo y preparados para recibir visitas, pedidos y pagos de inmediato.
 				</p>
 			</div>
 
@@ -148,92 +192,60 @@ const techStack = [
 			</div>
 		</section>
 
-		<!-- Arquitectura y Filosofía (Bento Grid Industrial) -->
-		<section id="enfoque" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-zinc-800/80">
+		<!-- Qué Ofrezco (Servicios Claros) -->
+		<section id="servicios" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-zinc-800/80">
 			<div class="mb-10 sm:mb-12">
 				<div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-lime-400 mb-2">
 					<span>// 02</span>
-					<span>Capacidades de Punta a Punta</span>
+					<span>Qué Ofrezco</span>
 				</div>
 				<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-					Cómo construyo tus productos
+					Servicios diseñados para dar resultados
 				</h2>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-				<!-- Card 01 - Backend -->
-				<div class="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-7 flex flex-col justify-between hover:border-zinc-700 transition-colors">
-					<div>
-						<div class="text-xs font-mono text-lime-400 font-bold mb-4">[CORE: BACKEND & APIS]</div>
-						<h3 class="text-lg font-bold text-white mb-2">Lógica & Backends Robustos</h3>
-						<p class="text-sm text-zinc-400 leading-relaxed">
-							Arquitectura de servicios escalables, bases de datos eficientes, autenticación segura e integraciones de pagos (Stripe, Webpay y más).
-						</p>
+				{servicios.map((s) => (
+					<div class="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-7 flex flex-col justify-between hover:border-lime-400/40 transition-all duration-300">
+						<div>
+							<div class="text-xs font-mono text-lime-400 font-bold mb-4">[{s.numero} // SERVICIO]</div>
+							<h3 class="text-xl font-bold text-white mb-3 tracking-tight">{s.titulo}</h3>
+							<p class="text-sm text-zinc-400 leading-relaxed font-sans">
+								{s.descripcion}
+							</p>
+						</div>
+						<div class="mt-6 pt-4 border-t border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-400">
+							<span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
+							<span>{s.destaque}</span>
+						</div>
 					</div>
-					<div class="mt-6 pt-4 border-t border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-500">
-						<span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
-						<span>APIs seguras y escalables</span>
-					</div>
-				</div>
-
-				<!-- Card 02 - E-Commerce -->
-				<div class="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-7 flex flex-col justify-between hover:border-zinc-700 transition-colors">
-					<div>
-						<div class="text-xs font-mono text-lime-400 font-bold mb-4">[PRODUCT: E-COMMERCE DESDE CERO]</div>
-						<h3 class="text-lg font-bold text-white mb-2">Tiendas Propias sin Limitaciones</h3>
-						<p class="text-sm text-zinc-400 leading-relaxed">
-							E-commerce a medida: gestión de catálogo, inventario en tiempo real y checkout instantáneo para maximizar las ventas sin comisiones abusivas.
-						</p>
-					</div>
-					<div class="mt-6 pt-4 border-t border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-500">
-						<span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
-						<span>Conversión optimizada</span>
-					</div>
-				</div>
-
-				<!-- Card 03 - UI/UX & Frontend -->
-				<div class="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-7 flex flex-col justify-between hover:border-zinc-700 transition-colors">
-					<div>
-						<div class="text-xs font-mono text-lime-400 font-bold mb-4">[FRONTEND: PERFORMANCE]</div>
-						<h3 class="text-lg font-bold text-white mb-2">Diseño UI/UX de Alta Fidelidad</h3>
-						<p class="text-sm text-zinc-400 leading-relaxed">
-							Interfaces de usuario contemporáneas construidas con Astro y Tailwind. Cero código genérico: todo adaptado a las necesidades de tu marca.
-						</p>
-					</div>
-					<div class="mt-6 pt-4 border-t border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-500">
-						<span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
-						<span>Experiencia fluida a 60fps</span>
-					</div>
-				</div>
+				))}
 			</div>
 		</section>
 
-		<!-- Stack Tecnológico -->
-		<section id="habilidades" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-zinc-800/80">
+		<!-- Por Qué Trabajar Conmigo (Beneficios) -->
+		<section id="beneficios" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-zinc-800/80">
 			<div class="mb-10 sm:mb-12">
 				<div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-lime-400 mb-2">
 					<span>// 03</span>
-					<span>Stack & Herramientas</span>
+					<span>Por Qué Elegirme</span>
 				</div>
 				<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-					Tecnologías de alto nivel
+					Beneficios claros para tu proyecto
 				</h2>
 			</div>
 
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 font-mono">
-				{techStack.map((tech) => (
-					<div class="p-4 rounded-lg border border-zinc-800/70 bg-zinc-950/60 flex flex-col justify-between hover:border-lime-400/40 transition-colors">
-						<div class="flex items-center justify-between mb-2">
-							<span class="text-white font-bold text-sm">{tech.nombre}</span>
-							<span class="text-[10px] text-lime-400 bg-lime-400/10 px-2 py-0.5 rounded border border-lime-400/20">
-								STACK
-							</span>
-						</div>
-						<div class="text-xs text-zinc-400 font-sans mt-1">
-							{tech.desc}
-						</div>
-						<div class="mt-3 text-[10px] text-zinc-500 uppercase tracking-wider">
-							{tech.categoria}
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+				{beneficios.map((b) => (
+					<div class="p-5 rounded-lg border border-zinc-800/70 bg-zinc-950/60 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+						<div>
+							<div class="flex items-center gap-2 text-lime-400 text-xs font-mono mb-2">
+								<span>&check;</span>
+								<h3 class="text-white font-bold text-sm tracking-tight">{b.titulo}</h3>
+							</div>
+							<p class="text-xs text-zinc-400 font-sans leading-relaxed mt-2">
+								{b.desc}
+							</p>
 						</div>
 					</div>
 				))}
@@ -247,35 +259,35 @@ const techStack = [
 
 				<div class="max-w-2xl mx-auto text-center relative z-10">
 					<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-lime-400 bg-lime-400/10 border border-lime-400/20 mb-6">
-						<span>// CANALES OFICIALES DE CONTACTO</span>
+						<span>// CONVERSEMOS DE TU IDEA</span>
 					</div>
 
 					<h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-						¿Tienes una idea, app o tienda en mente?
+						¿Tienes una idea o necesitas una web para tu negocio?
 					</h2>
-					<p class="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed font-sans">
-						Cuéntame qué necesitas desarrollar. Diseñemos una plataforma a medida con la máxima calidad técnica y visual.
+					<p class="mt-4 text-zinc-300 text-sm sm:text-base leading-relaxed font-sans">
+						Escríbeme por WhatsApp y te oriento sin compromiso sobre cómo llevar a cabo tu proyecto de forma ágil y con un presupuesto claro.
 					</p>
 
 					<!-- Opciones de Contacto Táctiles (Mobile First) -->
 					<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 font-mono">
 						<!-- Botón directo de WhatsApp (Canal Inmediato) -->
 						<a 
-							href="https://wa.me/56912345678?text=Hola%20Javier,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto" 
+							href="https://wa.me/5491170603106?text=Hola%20Javier,%20estuve%20viendo%20tu%20web%20y%20me%20gustar%C3%ADa%20consultarte%20por%20un%20proyecto" 
 							target="_blank"
 							rel="noopener noreferrer"
-							class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg shadow-emerald-500/10 active:scale-95"
+							class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-black font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg shadow-lime-400/15 glow-lime active:scale-95"
 						>
-							<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+							<svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
 								<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.83.81 2.796.81 3.183 0 5.769-2.588 5.77-5.768.001-3.182-2.585-5.794-5.77-5.794zm3.364 8.167c-.14.394-.808.751-1.121.789-.313.039-.707.054-2.072-.511-1.745-.724-2.871-2.496-2.958-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.274.607-1.448.16-.174.348-.218.464-.218.116 0 .232.001.333.006.107.005.25.04.385.367.14.339.479 1.168.521 1.255.042.087.07.189.012.305-.058.116-.087.189-.174.291-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 0.742.966 1.202.664.591 1.224.774 1.398.861.174.087.276.073.378-.044.102-.116.435-.508.551-.682.116-.174.232-.145.392-.087.16.058 1.015.479 1.189.566.174.087.29.131.333.204.043.073.043.421-.097.815zM12.042 2C6.5 2 2 6.5 2 12.042c0 1.984.58 3.834 1.583 5.399L2 22l4.693-1.536c1.517.937 3.303 1.478 5.349 1.478 5.542 0 10.042-4.5 10.042-10.042C22.084 6.5 17.584 2 12.042 2z"/>
 							</svg>
-							<span>Chatear por WhatsApp</span>
+							<span>Escribirme al WhatsApp (+54 9 11 7060-3106)</span>
 						</a>
 
 						<!-- Botón directo de correo -->
 						<a 
 							href="mailto:javierams1998@gmail.com" 
-							class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-black font-bold text-xs uppercase tracking-wider transition-all duration-200 glow-lime-sm active:scale-95"
+							class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 hover:text-white font-medium text-xs uppercase tracking-wider transition-all active:scale-95"
 						>
 							<span>Enviar Correo</span>
 							<span>&rarr;</span>
@@ -286,9 +298,9 @@ const techStack = [
 							id="copy-email-btn"
 							type="button"
 							data-email="javierams1998@gmail.com"
-							class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 font-medium text-xs uppercase tracking-wider transition-all active:scale-95"
+							class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-zinc-300 font-medium text-xs uppercase tracking-wider transition-all active:scale-95"
 						>
-							<span id="copy-text">Copiar Correo</span>
+							<span id="copy-text">Copiar Email</span>
 						</button>
 					</div>
 
@@ -300,20 +312,22 @@ const techStack = [
 		</section>
 	</main>
 
-	<!-- Botón Flotante Sutil de WhatsApp -->
-	<WhatsAppButton />
+	<!-- Botón Flotante Sutil de WhatsApp con tu número real -->
+	<WhatsAppButton phone="5491170603106" />
 
-	<!-- Footer Técnico -->
+	<!-- Footer Técnico pero accesible -->
 	<footer class="border-t border-zinc-800/80 py-10 text-xs font-mono text-zinc-500 bg-[#07080c]">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 			<div class="flex items-center gap-2">
 				<span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
-				<p>&copy; {new Date().getFullYear()} Javier Moreno. Full-Stack Engineer & Product Builder.</p>
+				<p>&copy; {new Date().getFullYear()} Javier Moreno. Full Stack Developer & Product Builder.</p>
 			</div>
 			<div class="flex items-center gap-4 text-zinc-400">
-				<span>BUILD // ASTRO + TAILWIND</span>
+				<a href="https://wa.me/5491170603106" target="_blank" rel="noopener noreferrer" class="hover:text-lime-400 transition-colors">
+					WhatsApp: +54 9 11 7060-3106
+				</a>
 				<span>&bull;</span>
-				<span class="text-lime-400 font-semibold">100% LIGHTHOUSE</span>
+				<span class="text-lime-400 font-semibold">Carga Inmediata</span>
 			</div>
 		</div>
 	</footer>

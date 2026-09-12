@@ -68,9 +68,11 @@ const {
 			
 			<a 
 				href={link} 
-				class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 group-hover:text-lime-400 transition-colors py-1"
+				target={link.startsWith('http') ? "_blank" : undefined}
+				rel={link.startsWith('http') ? "noopener noreferrer" : undefined}
+				class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 group-hover:text-lime-400 transition-colors py-1 shrink-0"
 			>
-				<span>Ver detalles</span>
+				<span>Consultar proyecto</span>
 				<span>&rarr;</span>
 			</a>
 		</div>

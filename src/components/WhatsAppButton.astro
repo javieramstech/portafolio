@@ -6,8 +6,8 @@ interface Props {
 }
 
 const {
-	phone = "56912345678", // Reemplazar con tu número de WhatsApp real con código de país
-	message = "Hola Javier, vi tu portafolio y me gustaría conversar sobre un proyecto web/ecommerce."
+	phone = "5491170603106", // Tu número de WhatsApp real
+	message = "Hola Javier, estuve viendo tu web y me gustaría consultarte por un proyecto."
 } = Astro.props;
 
 const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
