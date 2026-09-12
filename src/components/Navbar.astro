@@ -1,0 +1,158 @@
+---
+// Navbar.astro - Technical Industrial Navigation (Mobile First)
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090a0f]/80 border-b border-zinc-800/60 transition-all">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+		<!-- Brand & Status -->
+		<a href="/" class="flex items-center gap-2.5 group">
+			<span class="relative flex h-2.5 w-2.5">
+				<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+				<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-lime-400"></span>
+			</span>
+			<div class="flex flex-col">
+				<span class="text-xs sm:text-sm font-bold tracking-tight text-white group-hover:text-lime-300 transition-colors">
+					Javier Moreno
+				</span>
+				<span class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 leading-none">
+					Frontend & Creative Dev
+				</span>
+			</div>
+		</a>
+
+		<!-- Desktop Navigation -->
+		<nav class="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-zinc-400">
+			<a href="#proyectos" class="hover:text-white transition-colors py-1 flex items-center gap-1.5">
+				<span class="text-lime-400/80">01.</span>
+				<span>Proyectos</span>
+			</a>
+			<a href="#enfoque" class="hover:text-white transition-colors py-1 flex items-center gap-1.5">
+				<span class="text-lime-400/80">02.</span>
+				<span>Arquitectura</span>
+			</a>
+			<a href="#habilidades" class="hover:text-white transition-colors py-1 flex items-center gap-1.5">
+				<span class="text-lime-400/80">03.</span>
+				<span>Stack</span>
+			</a>
+			<a href="#contacto" class="hover:text-white transition-colors py-1 flex items-center gap-1.5">
+				<span class="text-lime-400/80">04.</span>
+				<span>Contacto</span>
+			</a>
+		</nav>
+
+		<!-- Right Side CTA & Mobile Menu Button -->
+		<div class="flex items-center gap-3">
+			<!-- Live availability pill (hidden on very small screens) -->
+			<div class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-[11px] font-mono text-zinc-400">
+				<span class="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
+				<span>DISPONIBLE</span>
+			</div>
+
+			<!-- Direct Contact CTA -->
+			<a 
+				href="#contacto" 
+				class="hidden sm:inline-flex items-center justify-center text-xs font-semibold px-4 py-2 rounded-lg bg-lime-400 hover:bg-lime-300 text-black transition-all duration-200 glow-lime-sm font-mono uppercase tracking-wider"
+			>
+				Hablemos
+			</a>
+
+			<!-- Mobile Hamburger Toggle (44px min tap target) -->
+			<button 
+				id="mobile-menu-btn" 
+				type="button" 
+				aria-label="Abrir menú de navegación"
+				aria-expanded="false"
+				class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:text-white hover:border-zinc-700 active:scale-95 transition-all"
+			>
+				<svg id="menu-icon-open" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+				</svg>
+				<svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Navigation Drawer -->
+	<div 
+		id="mobile-drawer" 
+		class="md:hidden hidden border-b border-zinc-800/80 bg-[#090a0f]/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300"
+	>
+		<div class="flex items-center justify-between pb-4 mb-4 border-b border-zinc-800/50">
+			<span class="text-[11px] font-mono uppercase tracking-widest text-zinc-500">Navegación</span>
+			<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono text-lime-400 bg-lime-400/10 border border-lime-400/20">
+				SYS: ONLINE
+			</span>
+		</div>
+		<nav class="flex flex-col gap-4 text-sm font-mono">
+			<a href="#proyectos" class="mobile-nav-link text-zinc-300 hover:text-white py-2 flex items-center justify-between">
+				<span>01 // Proyectos</span>
+				<span class="text-lime-400">&rarr;</span>
+			</a>
+			<a href="#enfoque" class="mobile-nav-link text-zinc-300 hover:text-white py-2 flex items-center justify-between">
+				<span>02 // Arquitectura</span>
+				<span class="text-lime-400">&rarr;</span>
+			</a>
+			<a href="#habilidades" class="mobile-nav-link text-zinc-300 hover:text-white py-2 flex items-center justify-between">
+				<span>03 // Stack & Herramientas</span>
+				<span class="text-lime-400">&rarr;</span>
+			</a>
+			<a href="#contacto" class="mobile-nav-link text-zinc-300 hover:text-white py-2 flex items-center justify-between">
+				<span>04 // Contacto directo</span>
+				<span class="text-lime-400">&rarr;</span>
+			</a>
+		</nav>
+		<div class="mt-6 pt-4 border-t border-zinc-800/60">
+			<a 
+				href="#contacto" 
+				class="mobile-nav-link flex items-center justify-center w-full py-3 rounded-lg bg-lime-400 text-black font-semibold text-xs font-mono uppercase tracking-wider glow-lime-sm"
+			>
+				Iniciar conversación
+			</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	function setupMobileMenu() {
+		const btn = document.getElementById('mobile-menu-btn');
+		const drawer = document.getElementById('mobile-drawer');
+		const iconOpen = document.getElementById('menu-icon-open');
+		const iconClose = document.getElementById('menu-icon-close');
+		const links = document.querySelectorAll('.mobile-nav-link');
+
+		if (!btn || !drawer || !iconOpen || !iconClose) return;
+
+		let isOpen = false;
+
+		function toggleMenu() {
+			isOpen = !isOpen;
+			btn?.setAttribute('aria-expanded', String(isOpen));
+			if (isOpen) {
+				drawer?.classList.remove('hidden');
+				iconOpen?.classList.add('hidden');
+				iconClose?.classList.remove('hidden');
+			} else {
+				drawer?.classList.add('hidden');
+				iconOpen?.classList.remove('hidden');
+				iconClose?.classList.add('hidden');
+			}
+		}
+
+		btn.addEventListener('click', toggleMenu);
+
+		links.forEach((link) => {
+			link.addEventListener('click', () => {
+				if (isOpen) toggleMenu();
+			});
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupMobileMenu);
+	} else {
+		setupMobileMenu();
+	}
+	document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

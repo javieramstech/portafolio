@@ -1,0 +1,260 @@
+---
+// HeroCanvas.astro - Interactive 2D Mesh Canvas (Mobile & Desktop)
+---
+
+<div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+	<canvas id="hero-interactive-canvas" class="w-full h-full block opacity-70 transition-opacity duration-1000"></canvas>
+	<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090a0f]/40 to-[#090a0f] pointer-events-none"></div>
+	<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-lime-400/5 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+
+<script>
+	function initHeroCanvas() {
+		const canvas = document.getElementById('hero-interactive-canvas') as HTMLCanvasElement | null;
+		if (!canvas) return;
+
+		const ctx = canvas.getContext('2d', { alpha: true });
+		if (!ctx) return;
+
+		let width = 0;
+		let height = 0;
+		let dpr = 1;
+		let animationId: number;
+
+		// Pointer/touch state
+		const pointer = {
+			x: -1000,
+			y: -1000,
+			targetX: -1000,
+			targetY: -1000,
+			isActive: false,
+			radius: 120
+		};
+
+		interface Particle {
+			x: number;
+			y: number;
+			originX: number;
+			originY: number;
+			vx: number;
+			vy: number;
+			size: number;
+			baseAlpha: number;
+			alpha: number;
+		}
+
+		let particles: Particle[] = [];
+
+		function resize() {
+			if (!canvas) return;
+			const parent = canvas.parentElement;
+			if (!parent) return;
+
+			dpr = Math.min(window.devicePixelRatio || 1, 2);
+			width = parent.clientWidth;
+			height = parent.clientHeight;
+
+			canvas.width = width * dpr;
+			canvas.height = height * dpr;
+			canvas.style.width = `${width}px`;
+			canvas.style.height = `${height}px`;
+
+			if (ctx) ctx.scale(dpr, dpr);
+
+			createParticles();
+		}
+
+		function createParticles() {
+			particles = [];
+			// Adaptive density: fewer on small screens to save battery & maintain 60fps
+			const isMobile = width < 768;
+			const spacing = isMobile ? 48 : 56;
+			pointer.radius = isMobile ? 110 : 150;
+
+			const cols = Math.ceil(width / spacing);
+			const rows = Math.ceil(height / spacing);
+
+			for (let i = 0; i <= cols; i++) {
+				for (let j = 0; j <= rows; j++) {
+					const x = i * spacing + (Math.random() - 0.5) * 12;
+					const y = j * spacing + (Math.random() - 0.5) * 12;
+					particles.push({
+						x,
+						y,
+						originX: x,
+						originY: y,
+						vx: (Math.random() - 0.5) * 0.3,
+						vy: (Math.random() - 0.5) * 0.3,
+						size: Math.random() > 0.85 ? 2.0 : 1.2,
+						baseAlpha: Math.random() * 0.35 + 0.15,
+						alpha: 0.2
+					});
+				}
+			}
+		}
+
+		function onPointerMove(clientX: number, clientY: number) {
+			if (!canvas) return;
+			const rect = canvas.getBoundingClientRect();
+			pointer.targetX = clientX - rect.left;
+			pointer.targetY = clientY - rect.top;
+			pointer.isActive = true;
+		}
+
+		function onPointerLeave() {
+			pointer.isActive = false;
+		}
+
+		// Attach to document or hero section for smooth response without blocking clicks
+		const heroSection = document.getElementById('hero-section');
+		const targetEl = heroSection || window;
+
+		// Mouse events
+		targetEl.addEventListener('mousemove', (e) => {
+			const evt = e as MouseEvent;
+			onPointerMove(evt.clientX, evt.clientY);
+		}, { passive: true });
+
+		targetEl.addEventListener('mouseleave', onPointerLeave, { passive: true });
+
+		// Touch events (Mobile First)
+		targetEl.addEventListener('touchstart', (e) => {
+			const evt = e as TouchEvent;
+			if (evt.touches.length > 0) {
+				onPointerMove(evt.touches[0].clientX, evt.touches[0].clientY);
+			}
+		}, { passive: true });
+
+		targetEl.addEventListener('touchmove', (e) => {
+			const evt = e as TouchEvent;
+			if (evt.touches.length > 0) {
+				onPointerMove(evt.touches[0].clientX, evt.touches[0].clientY);
+			}
+		}, { passive: true });
+
+		targetEl.addEventListener('touchend', () => {
+			setTimeout(onPointerLeave, 800);
+		}, { passive: true });
+
+		let time = 0;
+
+		function render() {
+			if (!ctx) return;
+			time += 0.015;
+
+			// Smooth pointer tracking
+			pointer.x += (pointer.targetX - pointer.x) * 0.15;
+			pointer.y += (pointer.targetY - pointer.y) * 0.15;
+
+			ctx.clearRect(0, 0, width, height);
+
+			const pLen = particles.length;
+
+			// Update and draw particles
+			for (let i = 0; i < pLen; i++) {
+				const p = particles[i];
+
+				// Gentle natural floating drift
+				const wave = Math.sin(time + p.originX * 0.02 + p.originY * 0.02) * 4;
+				const currentBaseX = p.originX + p.vx * 15 + wave * 0.5;
+				const currentBaseY = p.originY + p.vy * 15 + Math.cos(time + p.originY * 0.02) * 3;
+
+				// Interaction with pointer/touch
+				if (pointer.isActive) {
+					const dx = pointer.x - currentBaseX;
+					const dy = pointer.y - currentBaseY;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+
+					if (dist < pointer.radius) {
+						const force = (1 - dist / pointer.radius);
+						// Light elastic displacement
+						const angle = Math.atan2(dy, dx);
+						p.x = currentBaseX - Math.cos(angle) * force * 24;
+						p.y = currentBaseY - Math.sin(angle) * force * 24;
+						p.alpha = p.baseAlpha + force * 0.7;
+					} else {
+						p.x += (currentBaseX - p.x) * 0.08;
+						p.y += (currentBaseY - p.y) * 0.08;
+						p.alpha += (p.baseAlpha - p.alpha) * 0.08;
+					}
+				} else {
+					p.x += (currentBaseX - p.x) * 0.08;
+					p.y += (currentBaseY - p.y) * 0.08;
+					p.alpha += (p.baseAlpha - p.alpha) * 0.08;
+				}
+
+				// Draw particle
+				ctx.beginPath();
+				ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+				if (p.alpha > 0.4) {
+					// Glowing lime particle when close to touch
+					ctx.fillStyle = `rgba(204, 255, 0, ${p.alpha})`;
+				} else {
+					// Discrete cool gray particle
+					ctx.fillStyle = `rgba(161, 161, 170, ${p.alpha})`;
+				}
+				ctx.fill();
+			}
+
+			// Draw subtle connecting lines between nearby points
+			const maxDist = width < 768 ? 48 : 56;
+			ctx.lineWidth = 0.6;
+
+			for (let i = 0; i < pLen; i += 2) {
+				const p1 = particles[i];
+				for (let j = i + 1; j < Math.min(i + 4, pLen); j++) {
+					const p2 = particles[j];
+					const dx = p1.x - p2.x;
+					const dy = p1.y - p2.y;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+
+					if (dist < maxDist) {
+						const alpha = (1 - dist / maxDist) * 0.12 * Math.min(p1.alpha, p2.alpha);
+						ctx.beginPath();
+						ctx.moveTo(p1.x, p1.y);
+						ctx.lineTo(p2.x, p2.y);
+						ctx.strokeStyle = `rgba(204, 255, 0, ${alpha})`;
+						ctx.stroke();
+					}
+				}
+			}
+
+			// Subtle cursor spotlight on touch/move
+			if (pointer.isActive) {
+				const gradient = ctx.createRadialGradient(
+					pointer.x, pointer.y, 0,
+					pointer.x, pointer.y, pointer.radius
+				);
+				gradient.addColorStop(0, 'rgba(204, 255, 0, 0.08)');
+				gradient.addColorStop(1, 'rgba(204, 255, 0, 0)');
+				ctx.fillStyle = gradient;
+				ctx.beginPath();
+				ctx.arc(pointer.x, pointer.y, pointer.radius, 0, Math.PI * 2);
+				ctx.fill();
+			}
+
+			animationId = requestAnimationFrame(render);
+		}
+
+		window.addEventListener('resize', resize, { passive: true });
+		resize();
+		animationId = requestAnimationFrame(render);
+
+		// Battery optimization: pause when tab is hidden
+		document.addEventListener('visibilitychange', () => {
+			if (document.hidden) {
+				cancelAnimationFrame(animationId);
+			} else {
+				animationId = requestAnimationFrame(render);
+			}
+		});
+	}
+
+	// Initialize on page load and support View Transitions
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initHeroCanvas);
+	} else {
+		initHeroCanvas();
+	}
+	document.addEventListener('astro:page-load', initHeroCanvas);
+</script>

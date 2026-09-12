@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-brand-lime: #ccff00;
+  --color-brand-dark: #090a0f;
+  --color-brand-surface: #0e1118;
+}
+
+/* Patrones de cuadrícula técnica (Industrial aesthetic) */
+.bg-tech-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+.bg-tech-grid-dense {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Resplandores y micro-acentos en Lima */
+.glow-lime {
+  box-shadow: 0 0 35px -5px rgba(204, 255, 0, 0.18);
+}
+
+.glow-lime-sm {
+  box-shadow: 0 0 16px -2px rgba(204, 255, 0, 0.3);
+}
+
+/* Micro-marcas de cruce en esquinas técnicas (+) */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before,
+.corner-crosshair::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(163, 230, 53, 0.4);
+  line-height: 1;
+  pointer-events: none;
+}
+.corner-crosshair::before {
+  top: -5px;
+  left: -5px;
+}
+.corner-crosshair::after {
+  bottom: -5px;
+  right: -5px;
+}
