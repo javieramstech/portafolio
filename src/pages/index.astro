@@ -1,11 +1,187 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Proyectos iniciales para tu vitrina
+const proyectos = [
+	{
+		titulo: "Portal Corporativo & Landing Page",
+		descripcion: "Sitio web ultra rápido desarrollado con Astro y Tailwind, enfocado en captación de leads y máxima puntuación SEO.",
+		tags: ["Astro", "TailwindCSS", "SEO"],
+		estado: "Próximamente",
+		link: "#"
+	},
+	{
+		titulo: "Plataforma E-commerce Minimalista",
+		descripcion: "Experiencia de compra fluida con diseño moderno sin distracciones, catálogo ágil y tiempos de carga instantáneos.",
+		tags: ["Diseño Web", "UI/UX", "Rendimiento"],
+		estado: "En concepto",
+		link: "#"
+	},
+	{
+		titulo: "Aplicación Web / Dashboard",
+		descripcion: "Panel de control para gestión de datos, interfaz intuitiva y adaptable a dispositivos móviles.",
+		tags: ["Frontend", "Componentes", "Accesibilidad"],
+		estado: "En concepto",
+		link: "#"
+	}
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Javier Moreno — Desarrollador Web & Diseñador de Interfaces">
+	<!-- Navbar -->
+	<header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/75 border-b border-zinc-900/80">
+		<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+			<a href="/" class="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+				<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+				<span>Javier Moreno</span>
+			</a>
+			<nav class="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+				<a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+				<a href="#habilidades" class="hover:text-white transition-colors">Enfoque</a>
+				<a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+			</nav>
+			<a 
+				href="#contacto" 
+				class="inline-flex items-center justify-center text-xs font-semibold px-4 py-2 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 transition-all duration-200"
+			>
+				Hablemos
+			</a>
+		</div>
+	</header>
+
+	<main class="flex-1">
+		<!-- Hero Section (Sin clichés de IA: tipografía limpia, sobria y espaciado intencional) -->
+		<section class="max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-zinc-800 bg-zinc-900/50 text-zinc-400 mb-8">
+				<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+				Disponible para nuevos proyectos
+			</div>
+			<h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl">
+				Creo sitios web modernos que hacen destacar a empresas y creadores.
+			</h1>
+			<p class="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl font-normal leading-relaxed">
+				Desarrollo con Astro y tecnologías de vanguardia: páginas ultra veloces, optimizadas para Google y con diseño profesional sin plantillas genéricas.
+			</p>
+			<div class="mt-10 flex flex-wrap gap-4 items-center">
+				<a 
+					href="#proyectos" 
+					class="px-6 py-3 rounded-full bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition-all"
+				>
+					Ver proyectos
+				</a>
+				<a 
+					href="#contacto" 
+					class="px-6 py-3 rounded-full border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 font-medium text-sm transition-all"
+				>
+					Iniciar conversación &rarr;
+				</a>
+			</div>
+		</section>
+
+		<!-- Proyectos / Hub de Trabajos -->
+		<section id="proyectos" class="max-w-6xl mx-auto px-6 py-20 border-t border-zinc-900">
+			<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+				<div>
+					<h2 class="text-xs uppercase font-bold tracking-widest text-zinc-500 mb-2">Mi Vitrina</h2>
+					<p class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Proyectos seleccionados</p>
+				</div>
+				<p class="text-sm text-zinc-400 max-w-md">
+					Cada proyecto es independiente, alojado de forma gratuita y optimizado para el mejor rendimiento.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{proyectos.map((p) => (
+					<article class="group relative rounded-2xl border border-zinc-900 bg-zinc-900/30 p-6 flex flex-col justify-between hover:border-zinc-800 hover:bg-zinc-900/60 transition-all duration-300">
+						<div>
+							<div class="flex items-center justify-between mb-4">
+								<span class="text-[11px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-950/80 px-2.5 py-1 rounded-md border border-zinc-800">
+									{p.estado}
+								</span>
+							</div>
+							<h3 class="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
+								{p.titulo}
+							</h3>
+							<p class="mt-2 text-sm text-zinc-400 leading-relaxed">
+								{p.descripcion}
+							</p>
+						</div>
+						<div class="mt-6 pt-4 border-t border-zinc-900/70 flex flex-wrap gap-2">
+							{p.tags.map((tag) => (
+								<span class="text-xs text-zinc-400 bg-zinc-950 px-2 py-0.5 rounded border border-zinc-800/60">
+									{tag}
+								</span>
+							))}
+						</div>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<!-- Enfoque / Diferenciadores -->
+		<section id="habilidades" class="max-w-6xl mx-auto px-6 py-20 border-t border-zinc-900">
+			<div class="mb-12">
+				<h2 class="text-xs uppercase font-bold tracking-widest text-zinc-500 mb-2">Por qué este enfoque</h2>
+				<p class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Estándares sin concesiones</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="space-y-3">
+					<div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 font-bold text-sm">
+						01
+					</div>
+					<h4 class="text-base font-semibold text-white">Velocidad Extrema</h4>
+					<p class="text-sm text-zinc-400 leading-relaxed">
+						Construido con Astro sin sobrecargar de JavaScript innecesario. Carga en milisegundos incluso en conexiones lentas.
+					</p>
+				</div>
+				<div class="space-y-3">
+					<div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 font-bold text-sm">
+						02
+					</div>
+					<h4 class="text-base font-semibold text-white">Identidad Propia</h4>
+					<p class="text-sm text-zinc-400 leading-relaxed">
+						Cero diseños que parecen plantillas genéricas de IA. Tipografía editorial y armonía visual adaptada a cada necesidad.
+					</p>
+				</div>
+				<div class="space-y-3">
+					<div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 font-bold text-sm">
+						03
+					</div>
+					<h4 class="text-base font-semibold text-white">Alojamiento Gratuito</h4>
+					<p class="text-sm text-zinc-400 leading-relaxed">
+						Preparado para publicarse en Vercel o Cloudflare Pages sin pagar un solo dólar en servidores.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contacto CTA -->
+		<section id="contacto" class="max-w-6xl mx-auto px-6 py-24 border-t border-zinc-900">
+			<div class="rounded-3xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/40 to-zinc-950 p-8 sm:p-14 text-center max-w-3xl mx-auto">
+				<h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+					¿Tienes un proyecto en mente?
+				</h3>
+				<p class="mt-4 text-zinc-400 text-sm sm:text-base max-w-lg mx-auto">
+					Diseñemos juntos una página web que represente tu visión con la máxima calidad y rendimiento.
+				</p>
+				<div class="mt-8">
+					<a 
+						href="mailto:javier@ejemplo.com" 
+						class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition-all shadow-lg shadow-white/5"
+					>
+						<span>Escríbeme por correo</span>
+						<span>&rarr;</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-600">
+		<div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+			<p>&copy; {new Date().getFullYear()} Javier Moreno. Todos los derechos reservados.</p>
+			<p class="text-zinc-500">Desarrollado con Astro & Tailwind CSS</p>
+		</div>
+	</footer>
 </Layout>
